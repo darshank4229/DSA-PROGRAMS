@@ -1,5 +1,4 @@
 package LinkedList;
-
 class Node{
 	int value;
 	Node next;
@@ -7,8 +6,7 @@ class Node{
 class SingleLinkedList{
 	Node head,tail;
 	int size=0;
-	public void createOfSLL(int value) {   ////creation of the node 
-		
+	public void createOfSLL(int value) {   ////creation of the node 	
 		head= new Node();      ///Creating head node 
 		Node n1= new Node();   ///Creating the node 
 		n1.value=value;        ///Initializing the value to the node created in value place
@@ -31,13 +29,9 @@ class SingleLinkedList{
 			tail.next=n1; //then point the tail into new node 
 			tail=n1;
 		}
-	}
-	
+	}	
 }
-
-
 public class SingleLLMain {
-public static void main(String[] args) {
-	
+public static void main(String[] args) {	
 }
 }
