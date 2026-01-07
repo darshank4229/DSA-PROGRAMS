@@ -83,6 +83,35 @@ class DoubleLinkedLIst{
 }
 public class DoubleLLMain {
 public static void main(String[] args) {
-	
+	  DoubleLinkedLIst dll = new DoubleLinkedLIst();
+
+ 
+      dll.create(10);
+
+      dll.Insertion(1, 20);
+      dll.Insertion(1, 30);
+      dll.Insertion(0, 5);  
+      dll.Insertion(2, 15);
+
+
+      System.out.println("Forward Traversal:");
+      dll.forwordtraverse();
+
+
+      System.out.println("\nReverse Traversal:");
+      dll.revesetraverse();
+
+
+      System.out.println("\nSearching value 20:");
+      dll.search(20);
+
+      System.out.println("Searching value 100:");
+      dll.search(100);
+
+
+      dll.delete();
+
+      System.out.println("Traversal after deletion:");
+      dll.forwordtraverse();
 }
 }
