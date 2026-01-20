@@ -5,9 +5,11 @@ import java.util.ArrayList;
 class GraphNode{
 	private char ch;
 	private int index;
+	boolean visited;
 	public GraphNode(char ch,int index) {
 		this.ch=ch;
 		this.index=index;
+		this.visited=false;
 	}
 	public char getch() {
 		return ch;
@@ -52,6 +54,36 @@ class Graph{
 		}
 		return neigbours;
 	}
+	
+	public void bfsVisited(GraphNode node) {
+		ArrayList<GraphNode> queue= new ArrayList<GraphNode>();
+		queue.add(node);
+		while(!queue.isEmpty()) {
+			GraphNode currentNode=queue.remove(0);
+			currentNode.visited=true;
+			System.out.println(currentNode.getch()+" ");
+			
+			ArrayList<GraphNode> neigbours=getNeigbours(currentNode);
+			for (GraphNode nodes : neigbours) {
+				if(!nodes.visited) {
+					nodes.visited=true;
+					queue.add(nodes);
+				}
+			}
+			
+		}
+	}
+	
+	public void bfs() {
+		
+		for (GraphNode graphNode : a1) {
+			if(!graphNode.visited)
+			bfsVisited(graphNode);
+		}
+		
+//		bfsVisited(a1.get(0));
+	}
+
 }
 
 
@@ -77,10 +109,6 @@ public static void main(String[] args) {
 	
 	g1.printGraph();
 	System.out.println("------------------------------------------------");
-	ArrayList<GraphNode> a2=g1.getNeigbours(nodeList.get(2));
-	for (GraphNode graphNode : a2) {
-		System.out.print(graphNode.getch()+" ");
-	}
-	
+	 g1.bfs();
 }
 }
