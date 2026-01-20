@@ -1,6 +1,7 @@
 package Graph;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 class GraphNode{
 	private char ch;
@@ -84,6 +85,35 @@ class Graph{
 //		bfsVisited(a1.get(0));
 	}
 
+	
+	public void dfsVisited(GraphNode node) {
+		Stack<GraphNode> stack= new Stack<GraphNode>();
+		stack.push(node);
+		while(!stack.isEmpty()) {
+			GraphNode currentNode=stack.pop();
+			currentNode.visited=true;
+			System.out.println(currentNode.getch()+" ");
+			
+			ArrayList<GraphNode> neigbours=getNeigbours(currentNode);
+			for (GraphNode nodes : neigbours) {
+				if(!nodes.visited) {
+					nodes.visited=true;
+					stack.push(nodes);
+				}
+			}
+			
+		}
+	}
+	
+	public void dfs() {
+		
+		for (GraphNode graphNode : a1) {
+			if(!graphNode.visited)
+			dfsVisited(graphNode);
+		}
+		
+//		dfsVisited(a1.get(0));
+	}
 }
 
 
@@ -109,6 +139,9 @@ public static void main(String[] args) {
 	
 	g1.printGraph();
 	System.out.println("------------------------------------------------");
-	 g1.bfs();
+//	 g1.bfs();
+g1.dfs();
+	 
+	 
 }
 }
