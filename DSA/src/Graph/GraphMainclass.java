@@ -43,14 +43,14 @@ class Graph{
 		}
 	}
 	public ArrayList<GraphNode> getNeigbours(GraphNode node){
-		ArrayList<GraphNode> a2= new ArrayList<GraphNode>();
+		ArrayList<GraphNode> neigbours= new ArrayList<GraphNode>();
 		int index= node.getIndex();
 		for (int i = 0; i < arr.length; i++) {
 			if(arr[index][i]==1) {
-				a2.add(a1.get(i));
+				neigbours.add(a1.get(i));
 			}
 		}
-		return a2;
+		return neigbours;
 	}
 }
 
@@ -59,13 +59,13 @@ class Graph{
 public class GraphMainclass {
 public static void main(String[] args) {
 	
-	ArrayList<GraphNode> a1= new ArrayList<GraphNode>();
-	a1.add(new GraphNode('A', 0));
-	a1.add(new GraphNode('B', 1));
-	a1.add(new GraphNode('C', 2));
-	a1.add(new GraphNode('D', 3));
-	a1.add(new GraphNode('E', 4));
-	Graph g1= new Graph(a1);
+	ArrayList<GraphNode> nodeList= new ArrayList<GraphNode>();
+	nodeList.add(new GraphNode('A', 0));
+	nodeList.add(new GraphNode('B', 1));
+	nodeList.add(new GraphNode('C', 2));
+	nodeList.add(new GraphNode('D', 3));
+	nodeList.add(new GraphNode('E', 4));
+	Graph g1= new Graph(nodeList);
 	g1.printGraph();
 	System.out.println("------------------------------------------------");
 	g1.add(0, 1);
@@ -77,7 +77,7 @@ public static void main(String[] args) {
 	
 	g1.printGraph();
 	System.out.println("------------------------------------------------");
-	ArrayList<GraphNode> a2=g1.getNeigbours(a1.get(2));
+	ArrayList<GraphNode> a2=g1.getNeigbours(nodeList.get(2));
 	for (GraphNode graphNode : a2) {
 		System.out.print(graphNode.getch()+" ");
 	}
